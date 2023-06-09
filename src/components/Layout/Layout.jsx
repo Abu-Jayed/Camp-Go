@@ -1,9 +1,13 @@
-import App from "../../App";
+import { Outlet } from "react-router-dom";
+import NavBar from "../Shared/NavBar";
+import Footer from "../Shared/Footer";
 
 const Layout = () => {
     return (
         <div>
-            <App></App>
+            <NavBar></NavBar>
+            <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };
