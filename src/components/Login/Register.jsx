@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const Register = () => {
 
@@ -22,13 +23,59 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
+                const saveUser = { name: name, email: email, role: 'student' }
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(saveUser)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.insertedId) {
+                                reset();
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'User created successfully.',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navagate('/');
+                            }
+                        })
                 toast.success('user created successfully.')
                 const createdUser = result.user;
                 console.log(createdUser);
                 setError('')
-                setTimeout(() => navagate('/'), 2000)
-
+                // setTimeout(() => navagate('/'), 2000)
+                // navagate('/')
                 updateUser(name, img)
+                // .then(() => {
+                //     const saveUser = { name: name, email: email, role: 'student' }
+                //     fetch('http://localhost:5000/users', {
+                //         method: 'POST',
+                //         headers: {
+                //             'content-type': 'application/json'
+                //         },
+                //         body: JSON.stringify(saveUser)
+                //     })
+                //         .then(res => res.json())
+                //         .then(data => {
+                //             if (data.insertedId) {
+                //                 reset();
+                //                 Swal.fire({
+                //                     position: 'top-end',
+                //                     icon: 'success',
+                //                     title: 'User created successfully.',
+                //                     showConfirmButton: false,
+                //                     timer: 1500
+                //                 });
+                //                 navagate('/');
+                //             }
+                //         })
+                // })
             })
             .catch(err => {
                 // setError(err.message)
