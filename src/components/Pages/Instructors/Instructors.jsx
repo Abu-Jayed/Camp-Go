@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Swal from "sweetalert2";
 
-const PopularTeacher = () => {
+const Instructors = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
@@ -10,9 +10,6 @@ const PopularTeacher = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-    console.log(classes);
-    // const { className, classImage, instructorName, instructorEmail, availableSeats, price, enrolled, rating, status } = classes
-
     const handleOrderConfirm = () => {
         Swal.fire({
             position: "top-center",
@@ -24,7 +21,7 @@ const PopularTeacher = () => {
     }
     return (
         <>
-            <h1 className=" text-5xl font-bold bg-rose-200 hover:bg-rose-500 rounded-2xl mx-auto py-4 md:w-[500px] hover:text-white hover:rotate-2 ease-in duration-300 text-center mt-28 text-gray-800 mb-5">Popular Teacher
+            <h1 className=" text-5xl font-bold bg-rose-200 hover:bg-rose-500 rounded-2xl mx-auto py-4 md:w-[500px] hover:text-white hover:rotate-2 ease-in duration-300 text-center mt-28 text-gray-800 mb-5">All Teacher
 
             </h1>
             <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-3 max-w-[1100px] mx-auto md:my-10 gap-10">
@@ -59,4 +56,4 @@ const PopularTeacher = () => {
     );
 };
 
-export default PopularTeacher;
+export default Instructors;
