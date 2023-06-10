@@ -17,7 +17,7 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='instructors'> Instructors</Link></li>
         <li><Link to='classes'>Classes</Link></li>
-        <li><Link to={`dashboard/${user?.email}`}>Dashboard</Link></li>
+        <li><Link to={`dashboard`}>Dashboard</Link></li>
     </>
     return (
         <>

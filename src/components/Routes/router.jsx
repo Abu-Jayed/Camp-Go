@@ -8,6 +8,8 @@ import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivetRoute from "./PrivetRoute";
+import SelectedClass from "../Pages/Dashboard/StudentDashboard/SelectedClass";
+import EnrolledClass from "../Pages/Dashboard/StudentDashboard/EnrolledClass";
 
 const router = createBrowserRouter([
     {
@@ -38,8 +40,18 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: 'dashboard/:email',
-        element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>
+        path: 'dashboard',
+        element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
+        children: [
+            {
+                path: 'selectedClass',
+                element: <SelectedClass></SelectedClass>
+            },
+            {
+                path: 'enrolledClass',
+                element: <EnrolledClass></EnrolledClass>
+            }
+        ]
     }
 ]);
 
