@@ -36,7 +36,7 @@ const Login = () => {
 
         setTimeout(()=>{
           if(from){
-              navigate(from)
+              navigate('/')
               // console.log(user);
           }
           else{

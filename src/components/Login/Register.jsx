@@ -4,6 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
 
@@ -196,6 +197,7 @@ const Register = () => {
                         <button className="btn bg-rose-500 hover:bg-rose-600 font-bold text-xl">Register</button>
                     </div>
                 </form>
+                    <SocialLogin></SocialLogin>
                 <h1 className="text-3xl text-center font-semibold uppercase text-red-600">
 
                     {

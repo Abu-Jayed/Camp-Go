@@ -10,7 +10,7 @@ const PopularTeacher = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-    console.log(classes);
+    // console.log(classes);
     // const { className, classImage, instructorName, instructorEmail, availableSeats, price, enrolled, rating, status } = classes
 
     const handleOrderConfirm = () => {

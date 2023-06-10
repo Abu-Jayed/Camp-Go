@@ -6,6 +6,8 @@ import Register from "../Login/Register";
 import Home from "../Home/Home";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashboard/:email',
+        element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>
+    }
 ]);
 
 export default router;
