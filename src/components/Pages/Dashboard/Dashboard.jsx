@@ -8,16 +8,16 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext)
     console.log('user form dashboard', user);
 
-    const [student, setStudent] = useState()
+    const [users, setUsers] = useState()
     useEffect(() => {
         fetch(`http://localhost:5000/dashboard/${user?.email}`)
             .then(res => res.json())
-            .then(data => setStudent(data))
+            .then(data => setUsers(data))
     }, [])
     // console.log(student.role);
-    if (student?.role === 'student') {
+    if (users?.role === 'student') {
         return <div>
-            <h1 className='text-4xl'>{student.name}</h1>
+            <h1 className='text-4xl'>{users.name}</h1>
             <div className="flex gap-3">
                 <div>
                     <ul className="bg-rose-500 w-52 h-[100vh]">
@@ -25,6 +25,22 @@ const Dashboard = () => {
                         <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/enrolledClass'>Enrolled Class</NavLink> </li>
                     </ul>
                 </div>
+                <div>
+                    <Outlet></Outlet>
+                </div>
+            </div>
+        </div>
+    }else if(users?.role === 'teacher'){
+        return <div>
+            <h1 className='text-4xl'>Your teacher name is {users.name}</h1>
+            <div className="flex gap-3">
+                <div>
+                    <ul className="bg-rose-500 w-52 h-[100vh]">
+                        <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/addaclass'>Add a class</NavLink> </li>
+                        <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/myclasses'>My classes</NavLink> </li>
+                    </ul>
+                </div>
+                <h1></h1>
                 <div>
                     <Outlet></Outlet>
                 </div>

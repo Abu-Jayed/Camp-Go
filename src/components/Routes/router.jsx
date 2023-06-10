@@ -10,6 +10,9 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivetRoute from "./PrivetRoute";
 import SelectedClass from "../Pages/Dashboard/StudentDashboard/SelectedClass";
 import EnrolledClass from "../Pages/Dashboard/StudentDashboard/EnrolledClass";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import AddAClass from "../Pages/Dashboard/TeacherDashboard/AddAClass";
+import MyClasses from "../Pages/Dashboard/TeacherDashboard/MyClasses";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +53,18 @@ const router = createBrowserRouter([
             {
                 path: 'enrolledClass',
                 element: <EnrolledClass></EnrolledClass>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
+            },
+            {
+                path: 'addaclass',
+                element: <AddAClass></AddAClass>
+            },
+            {
+                path: 'myclasses',
+                element: <MyClasses></MyClasses>
             }
         ]
     }
