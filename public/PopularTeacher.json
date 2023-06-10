@@ -1,0 +1,80 @@
+[
+    {
+      "className": "Junior Class",
+      "classImage": "https://html.modernwebtemplates.com/okorner/images/team/02.jpg",
+      "instructorName": "Jane Smith",
+      "instructorEmail": "jane.smith@example.com",
+      "availableSeats": 30,
+      "price": 99.99,
+      "enrolled": 25,
+      "rating": 4.5,
+      "status": "approved"
+    },
+    {
+      "className": "Karate Class",
+      "classImage": "https://html.modernwebtemplates.com/okorner/images/team/03.jpg",
+      "instructorName": "David Johnson",
+      "instructorEmail": "david.johnson@example.com",
+      "availableSeats": 15,
+      "price": 79.99,
+      "enrolled": 12,
+      "rating": 4.2,
+      "status": "approved"
+    },
+    {
+      "className": "Judo Class",
+      "classImage": "https://html.modernwebtemplates.com/okorner/images/team/01.jpg",
+      "instructorName": "John Doe",
+      "instructorEmail": "john.doe@example.com",
+      "availableSeats": 20,
+      "price": 49.99,
+      "enrolled": 18,
+      "rating": 4.7,
+      "status": "approved"
+    },
+    {
+      "className": "Point-Fighting",
+      "classImage": "https://tiger-claw.themerex.net/wp-content/uploads/2017/05/team-6-370x335.jpg",
+      "instructorName": "Emily Davis",
+      "instructorEmail": "emily.davis@example.com",
+      "availableSeats": 10,
+      "price": 89.99,
+      "enrolled": 8,
+      "rating": 4.0,
+      "status": "approved"
+    },
+    {
+      "className": "Men-Women Fighting",
+      "classImage": "https://tiger-claw.themerex.net/wp-content/uploads/2017/05/team-4-370x335.jpg",
+      "instructorName": "Michael Brown",
+      "instructorEmail": "michael.brown@example.com",
+      "availableSeats": 50,
+      "price": 149.99,
+      "enrolled": 40,
+      "rating": 4.9,
+      "status": "approved"
+    },
+    {
+      "className": "Rope Master",
+      "classImage": "https://tiger-claw.themerex.net/wp-content/uploads/2017/05/team-5-370x335.jpg",
+      "instructorName": "Maria Rodriguez",
+      "instructorEmail": "maria.rodriguez@example.com",
+      "availableSeats": 25,
+      "price": 69.99,
+      "enrolled": 22,
+      "rating": 4.3,
+      "status": "approved"
+    },
+    {
+      "className": "Rope Master",
+      "classImage": "https://tiger-claw.themerex.net/wp-content/uploads/2017/05/post-5-1170x658.jpg",
+      "instructorName": "Maria Rodriguez",
+      "instructorEmail": "maria.rodriguez@example.com",
+      "availableSeats": 25,
+      "price": 69.99,
+      "enrolled": 22,
+      "rating": 4.3,
+      "status": "approved"
+    }
+  ]
+  
