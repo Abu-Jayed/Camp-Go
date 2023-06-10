@@ -2,17 +2,14 @@ import { useEffect, useState } from "react";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Swal from "sweetalert2";
 
-const PopularClass = () => {
+const Classes = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('popularClasses.json')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-    console.log(classes);
-    // const { className, classImage, instructorName, instructorEmail, availableSeats, price, enrolled, rating, status } = classes
-
     const handleOrderConfirm = () => {
         Swal.fire({
             position: "top-center",
@@ -59,4 +56,4 @@ const PopularClass = () => {
     );
 };
 
-export default PopularClass;
+export default Classes;
