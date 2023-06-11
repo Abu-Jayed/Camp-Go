@@ -3,12 +3,16 @@ const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
-                <div>
+                {/* <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
                     <a className="link link-hover">Design</a>
                     <a className="link link-hover">Marketing</a>
                     <a className="link link-hover">Advertisement</a>
+                </div> */}
+                <div className="flex items-center gap-0">
+                <img src="../../../public/CG_Logo.png" className="w-40" alt="" />
+                <p className="text-3xl font-bold">CampGo</p>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>

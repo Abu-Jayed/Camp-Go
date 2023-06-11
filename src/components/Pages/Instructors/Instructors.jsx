@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const Instructors = () => {
     const [classes, setClasses] = useState([])
@@ -19,8 +20,10 @@ const Instructors = () => {
             timer: 1400,
         });
     }
+    useTitle('CampGo || Instructors')
     return (
         <>
+        
             <h1 className=" text-5xl font-bold bg-rose-200 hover:bg-rose-500 rounded-2xl mx-auto py-4 md:w-[500px] hover:text-white hover:rotate-2 ease-in duration-300 text-center mt-28 text-gray-800 mb-5">All Teacher
 
             </h1>
