@@ -14,20 +14,21 @@ const NavBar = () => {
 
 
     const navOptions = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='instructors'> Instructors</Link></li>
-        <li><Link to='classes'>Classes</Link></li>
-        <li><Link to={`dashboard`}>Dashboard</Link></li>
+        <Link className="hover:text-orange-600 uppercase font-bold" to='/'>Home</Link>
+        <Link className="hover:text-orange-600 uppercase font-bold" to='instructors'> Instructors</Link>
+        <Link className="hover:text-orange-600 uppercase font-bold" to='classes'>Classes</Link>
+        <Link className="hover:text-orange-600 uppercase font-bold" to={`dashboard`}>Dashboard</Link>
+        <Link className="hover:text-orange-600 uppercase font-bold" to='classes'>Contact</Link>
     </>
     return (
         <>
-            <div className="navbar bg-red-400 rounded-md">
+            <div className="navbar bg-[#1d1d1d] text-white rounded-md">
                 <div className="navbar-start">
                     <div className="relative">
                         {/* <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label> */}
-                        <ul className="menu left-36 absolute text-white top-10 bg-[#1d1d1d] menu-horizontal px-1">
+                        <ul className="menu left-32 absolute text-white top-9 bg-[#1d1d1d] h-36 w-36 rounded-md px-4 menu-horizontal ">
                             {
                                 navOptions
                             }
@@ -36,7 +37,7 @@ const NavBar = () => {
                     <a className="btn btn-ghost normal-case text-xl">Camp Go</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="  menu menu-horizontal px-1 flex gap-5">
                         {
                             navOptions
                         }
