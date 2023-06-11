@@ -27,7 +27,7 @@ const Instructors = () => {
             <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-3 max-w-[1100px] mx-auto md:my-10 gap-10">
 
                 {
-                    classes.slice(0, 6).map(fightClass => {
+                    classes.map(fightClass => {
                         return <>
 
                             <div key={fightClass.classImage}>

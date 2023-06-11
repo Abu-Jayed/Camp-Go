@@ -47,27 +47,21 @@ const Dashboard = () => {
             </div>
         </div>
     }
-    return (
-        <>
-            <div>
+    return <div>
+            <h1 className='text-4xl'>Your teacher name is {users?.name}</h1>
+            <div className="flex gap-3">
                 <div>
-                    <ul className="bg-rose-500 w-52 h-[100vh]">
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
-                        <li>hoeme</li>
+                    <ul className="bg-rose-500 w-60 h-[100vh]">
+                        <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/manageClasses'>Manage Classes</NavLink> </li>
+                        <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/manageUsers'>Manage Users</NavLink> </li>
                     </ul>
                 </div>
-
+                <h1></h1>
+                <div>
+                    <Outlet></Outlet>
+                </div>
             </div>
-
-        </>
-    );
+        </div>
 };
 
 export default Dashboard;
