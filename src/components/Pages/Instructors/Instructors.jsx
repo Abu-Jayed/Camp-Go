@@ -21,6 +21,7 @@ const Instructors = () => {
         });
     }
     useTitle('CampGo || Instructors')
+    console.log(classes);
     return (
         <>
         
@@ -33,19 +34,13 @@ const Instructors = () => {
                     classes.map(fightClass => {
                         return <>
 
-                            <div key={fightClass.classImage}>
+                            <div key={fightClass?.img}>
                                 <div className="shadow-md hover:shadow-md hover:shadow-black shadow-gray-600">
-                                    <img className="mx-auto w-[340px] h-[226px]" src={fightClass.classImage} alt="" />
-                                    <a href="" className="p-5 text-blue-400 font-bold">{fightClass.instructorName}</a>
-                                    <p className="font-bold text-xl px-5 pt-2">{fightClass.instructorEmail} </p>
+                                    <img className="mx-auto w-[340px] h-[226px]" src={fightClass.img} alt="" />
+                                    <a href="" className="p-5 text-blue-400 font-bold">{fightClass.name}</a>
+                                    <p className="font-bold text-xl px-5 pt-2">{fightClass.email} </p>
                                     <div className="items-center px-4 flex  text-2xl pb-3 text-orange-600 ">
-                                        <BsStarFill></BsStarFill>
-                                        <BsStarFill></BsStarFill>
-                                        <BsStarFill></BsStarFill>
-                                        <BsStarFill></BsStarFill>
-                                        <BsStarHalf></BsStarHalf>
-                                        <p>{fightClass.rating} <span className="text-violet-500"> ({fightClass.enrolled})</span></p>
-                                        <button onClick={handleOrderConfirm} className="text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 ">Classes</button>
+                                        {/* <button onClick={handleOrderConfirm} className="text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 ">Classes</button> */}
                                     </div>
                                 </div>
                             </div>
