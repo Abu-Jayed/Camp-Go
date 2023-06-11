@@ -3,11 +3,12 @@ import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
 const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const location = useLocation();
+    
     const currentDate = new Date();
     const isoDate = currentDate.toISOString();
 
@@ -37,8 +38,8 @@ const SocialLogin = () => {
         <div>
             <div className="divider"></div>
             <div className="w-full text-center my-4">
-                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
-                    <FaGoogle></FaGoogle>
+                <button onClick={handleGoogleSignIn} className="btn btn-circle bg-gray-300 hover:bg-yellow-700">
+                    <FaGoogle className="w-96"></FaGoogle>
                 </button>
             </div>
         </div>

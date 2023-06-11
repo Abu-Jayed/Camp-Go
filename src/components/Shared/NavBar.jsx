@@ -14,11 +14,11 @@ const NavBar = () => {
 
 
     const navOptions = <>
-        <Link className="hover:text-orange-600 uppercase font-bold" to='/'>Home</Link>
-        <Link className="hover:text-orange-600 uppercase font-bold" to='instructors'> Instructors</Link>
-        <Link className="hover:text-orange-600 uppercase font-bold" to='classes'>Classes</Link>
-        <Link className="hover:text-orange-600 uppercase font-bold" to={`dashboard`}>Dashboard</Link>
-        <Link className="hover:text-orange-600 uppercase font-bold" to='classes'>Contact</Link>
+        <Link className="hover:text-yellow-400 uppercase font-bold" to='/'>Home</Link>
+        <Link className="hover:text-yellow-400 uppercase font-bold" to='instructors'> Instructors</Link>
+        <Link className="hover:text-yellow-400 uppercase font-bold" to='classes'>Classes</Link>
+        <Link className="hover:text-yellow-400 uppercase font-bold" to={`dashboard`}>Dashboard</Link>
+        <Link className="hover:text-yellow-400 uppercase font-bold" to='classes'>Contact</Link>
     </>
     return (
         <>
@@ -28,7 +28,7 @@ const NavBar = () => {
                         {/* <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label> */}
-                        <ul className="menu left-32 absolute text-white top-9 bg-[#1d1d1d] h-36 w-36 rounded-md px-4 menu-horizontal ">
+                        <ul className="md:invisible menu left-32 absolute text-white top-9 bg-[#1d1d1d] h-36 w-36 rounded-md px-4 menu-horizontal ">
                             {
                                 navOptions
                             }

@@ -24,11 +24,14 @@ const Register = () => {
         if (password.length < 6) {
             toast.error("password must have 6 charectar")
             return setError('password must have 6 charectar')
+        } else if (password !== confirmPassword) {
+            toast.error('Password did not match')
+            return setError('Password did not match')
         }
-        
+
         createUser(email, password)
-        .then(result => {
-            const saveUser = { name: name, email: email, role: 'student', img, createdOn: isoDate }
+            .then(result => {
+                const saveUser = { name: name, email: email, role: 'student', img, createdOn: isoDate }
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
@@ -97,12 +100,12 @@ const Register = () => {
 
     return (
         <>
-            <div className="text-black md:w-[666px] mx-auto rounded-3xl  p-10 mb-14 mt-14  shadow-inner shadow-red-600">
-                <h3 className="text-center text-red-600 text-5xl font-bold tracking-wide mb-10">
+            <div className="text-black md:w-[666px] mx-auto rounded-3xl  p-10 mb-14 mt-14  shadow-inner shadow-yellow-600">
+                <h3 className="text-center text-[#dfa100] text-5xl font-bold tracking-wide mb-10">
                     Register your account
                 </h3>
                 <hr className="w-96  h-[1px] mx-auto my-2 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></hr>
-                <form onSubmit={handleSubmit(onSubmit)} className="w-96 mx-auto" >
+                <form onSubmit={handleSubmit(onSubmit)} className=" w-96 mx-auto" >
                     <div className="form-control">
                         <label className="label">
                             <span className="text-black font-semibold tracking-wider">
@@ -114,7 +117,7 @@ const Register = () => {
                             type="text"
                             name="name"
                             placeholder="name"
-                            className="input input-bordered  border-rose-300 focus:outline-red-600"
+                            className="input border-rose-300 input-bordered shadow-md shadow-gray-500 focus:outline-gray-600"
                             required
                         />
                     </div>
@@ -129,7 +132,7 @@ const Register = () => {
                             type="text"
                             name="img"
                             placeholder="Image Url"
-                            className="input input-bordered border-rose-300 focus:outline-red-600"
+                            className="input border-rose-300 input-bordered shadow-md shadow-gray-500 focus:outline-gray-600"
                             required
                         />
                     </div>
@@ -144,7 +147,7 @@ const Register = () => {
                             type="email"
                             name="email"
                             placeholder="email"
-                            className="input input-bordered border-rose-300 focus:outline-red-600"
+                            className="input border-rose-300 input-bordered shadow-md shadow-gray-500 focus:outline-gray-600"
                             required
                         />
                     </div>
@@ -155,13 +158,17 @@ const Register = () => {
                             </span>
                         </label>
                         <input
-                            {...register("password", { required: true })}
+                            {...register("password", {
+                            required: true,
+                             pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
+                            })}
                             type="password"
                             name="password"
                             placeholder="password"
-                            className="input input-bordered border-rose-300 focus:outline-red-600"
+                            className="input border-rose-300 input-bordered shadow-md shadow-gray-500 focus:outline-gray-600"
                             required
-                        />
+                        />{errors.password?.type === 'pattern' && <p className="text-red-600">Password must have 1 Uppercase and 1 special character.</p>}
+
                         <label className="label">
                             <span className="text-black font-semibold tracking-wider">
                                 Confirm Password
@@ -172,15 +179,15 @@ const Register = () => {
                             type="password"
                             name="confirmPassword"
                             placeholder="confirm password"
-                            className="input input-bordered border-rose-300 focus:outline-red-600"
+                            className="input border-rose-300 input-bordered shadow-md shadow-gray-500 focus:outline-gray-600"
                             required
                         />
 
                         <label className="label">
-                            <div className="text-rose-500 text-xl font-bold tracking-wide  flex gap-12">
+                            <div className="text-yellow-500 text-xl font-bold tracking-wide  flex gap-12">
                                 <div className="flex">
                                     <p className="mr-1">Have an account?</p>
-                                    <Link className="underline text-red-600" to="/login">
+                                    <Link className="underline text-yellow-600" to="/login">
                                         {" "}
                                         Login
                                     </Link>
@@ -188,17 +195,8 @@ const Register = () => {
                             </div>
                         </label>
                     </div>
-                    <div className="form-control">
-                        <label className="flex gap-4 cursor-pointer mt-4">
-                            <input
-                                type="checkbox"
-                                className="border-2 border-white checkbox"
-                            />
-                            <span className="text-white">Remember me</span>
-                        </label>
-                    </div>
                     <div className="w-60 mx-auto form-control mt-6 mb-3">
-                        <button className="btn bg-rose-500 hover:bg-rose-600 font-bold text-xl">Register</button>
+                        <button className="btn text-yellow-500 bg-slate-200 hover:text-[#dfa100] font-bold text-xl">Register</button>
                     </div>
                 </form>
                 <SocialLogin></SocialLogin>
