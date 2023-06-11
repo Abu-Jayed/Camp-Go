@@ -8,6 +8,8 @@ const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const currentDate = new Date();
+    const isoDate = currentDate.toISOString();
 
     const from = location.state?.from?.pathname || "/";
 
@@ -16,7 +18,7 @@ const SocialLogin = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email,role: 'student' }
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, role: 'student', img: loggedInUser.photoURL , createdOn: isoDate}
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {

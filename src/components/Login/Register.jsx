@@ -13,39 +13,43 @@ const Register = () => {
     const [error, setError] = useState('')
     const navagate = useNavigate();
     // console.log(user);
-    
+
     const onSubmit = data => {
-        const {name,img,email,password,confirmPassword} = data;
+        const { name, img, email, password, confirmPassword } = data;
+        const currentDate = new Date();
+        const isoDate = currentDate.toISOString();
+
+        // console.log(isoDate);
 
         if (password.length < 6) {
             toast.error("password must have 6 charectar")
             return setError('password must have 6 charectar')
         }
-
+        
         createUser(email, password)
-            .then(result => {
-                const saveUser = { name: name, email: email, role: 'student' }
-                    fetch('http://localhost:5000/users', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(saveUser)
+        .then(result => {
+            const saveUser = { name: name, email: email, role: 'student', img, createdOn: isoDate }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            reset();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navagate('/');
+                        }
                     })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.insertedId) {
-                                reset();
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'success',
-                                    title: 'User created successfully.',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                });
-                                navagate('/');
-                            }
-                        })
                 toast.success('user created successfully.')
                 const createdUser = result.user;
                 console.log(createdUser);
@@ -106,7 +110,7 @@ const Register = () => {
                             </span>
                         </label>
                         <input
-                        {...register("name", { required: true })}
+                            {...register("name", { required: true })}
                             type="text"
                             name="name"
                             placeholder="name"
@@ -121,7 +125,7 @@ const Register = () => {
                             </span>
                         </label>
                         <input
-                        {...register("img", { required: true })}
+                            {...register("img", { required: true })}
                             type="text"
                             name="img"
                             placeholder="Image Url"
@@ -136,7 +140,7 @@ const Register = () => {
                             </span>
                         </label>
                         <input
-                        {...register("email", { required: true })}
+                            {...register("email", { required: true })}
                             type="email"
                             name="email"
                             placeholder="email"
@@ -151,7 +155,7 @@ const Register = () => {
                             </span>
                         </label>
                         <input
-                        {...register("password", { required: true })}
+                            {...register("password", { required: true })}
                             type="password"
                             name="password"
                             placeholder="password"
@@ -160,18 +164,18 @@ const Register = () => {
                         />
                         <label className="label">
                             <span className="text-black font-semibold tracking-wider">
-                               Confirm Password
+                                Confirm Password
                             </span>
                         </label>
                         <input
-                        {...register("confirmPassword", { required: true })}
+                            {...register("confirmPassword", { required: true })}
                             type="password"
                             name="confirmPassword"
                             placeholder="confirm password"
                             className="input input-bordered border-rose-300 focus:outline-red-600"
                             required
                         />
-                        
+
                         <label className="label">
                             <div className="text-rose-500 text-xl font-bold tracking-wide  flex gap-12">
                                 <div className="flex">
@@ -197,7 +201,7 @@ const Register = () => {
                         <button className="btn bg-rose-500 hover:bg-rose-600 font-bold text-xl">Register</button>
                     </div>
                 </form>
-                    <SocialLogin></SocialLogin>
+                <SocialLogin></SocialLogin>
                 <h1 className="text-3xl text-center font-semibold uppercase text-red-600">
 
                     {
