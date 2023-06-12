@@ -77,7 +77,7 @@ const ManageUsers = () => {
           <td>
             <div className="flex gap-3">
             <button onClick={() => handleRoleUpdate(user._id, 'admin')}>Make Admin</button>
-            <button onClick={() => handleRoleUpdate(user._id, 'teacher')}>Make Teacher</button>
+            <button className={`${user.email === "mdabujayed2006@gmail.com"?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'teacher')}>Make Teacher</button>
             </div>
           </td>
         </tr>

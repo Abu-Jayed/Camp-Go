@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { toast } from 'react-hot-toast';
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -20,17 +21,25 @@ const ManageClasses = () => {
     const handleStatusUpdate = async (id, newStatus) => {
         try {
           // Send the API request to update the status
-          await axiosSecure.put(`/classes/${id}/status`, { status: newStatus });
+          //   toast.success('class managed successfully')
+          Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Class Status updated",
+              showConfirmButton: false,
+              timer: 1400,
+            });
+            await axiosSecure.put(`/classes/${id}/status`, { status: newStatus });
     
           // Update the status in the local state
-        //   setClasses((prevClasses) =>
-        //     prevClasses.map((fightClass) => {
-        //       if (fightClass._id === id) {
-        //         return { ...fightClass, status: newStatus };
-        //       }
-        //       return fightClass;
-        //     })
-        //   );
+          setClasses( (classes) =>
+            classes.map((fightClass) => {
+              if (fightClass._id === id) {
+                return { ...fightClass, status: newStatus };
+              }
+              return fightClass;
+            })
+          );
         } catch (error) {
           console.log(error);
         }
@@ -52,13 +61,21 @@ const ManageClasses = () => {
                                     <img className="mx-auto w-[340px] h-[226px]" src={fightClass.classImage} alt="" />
                                     <a href="" className="p-5 text-blue-400 font-bold">{fightClass.className}</a>
                                     <p className="font-bold text-xl px-5 pt-2">{fightClass.enrolled} Enrolled</p>
-                                    <div className="items-center px-4   text-2xl pb-3 text-orange-600 ">
+                                    <div className='font-bold ml-4'>
+                                    <h1>Name: <span className='uppercase'>{fightClass.instructorName}</span> </h1>
+                                    <h1>{fightClass.instructorEmail}</h1>
+                                    </div>
+                                    <div className='ml-5 flex gap-5'>
+                                        <p>Price: {fightClass.price}</p>
+                                        <p>Price: {fightClass.availableSeats}</p>
+                                    </div>
+                                    <div className="items-center px-4   text-xl pb-3 text-orange-600 ">
                                         <p>Status: {fightClass.status}</p>
-                                        <button onClick={() => handleStatusUpdate(fightClass._id, 'denied')} className={`text-lg md:ml-5 font-bold p-1 rounded-xl ${fightClass?.status === "approved" ? 'btn-disabled bg-slate-300': ''}
+                                        <button onClick={() => handleStatusUpdate(fightClass._id, 'denied')} className={` md:ml-5  rounded ${fightClass?.status === "approved" ? 'btn-disabled bg-slate-300': ''}
                                         ${fightClass?.status === "denied" ? 'btn-disabled bg-red-200': ''} text-white bg-rose-500 
                                         `}>Denied</button>
-                                        <button onClick={() => handleStatusUpdate(fightClass._id, 'approved')} className={`text-lg md:ml-5 font-bold p-1 rounded-xl ${fightClass?.status === "approved" ? 'btn-disabled bg-green-300': ''} ${fightClass?.status === "denied" ? 'btn-disabled bg-slate-300': ''}    text-white bg-rose-500 `} >Approved</button>
-                                        <button className={`text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 ${fightClass?.status === "approved" ? 'btn-disabled bg-slate-300': ''} ${fightClass?.status === "denied" ? 'btn-disabled bg-slate-300': ''}`}>Send Feedback</button>
+                                        <button onClick={() => handleStatusUpdate(fightClass._id, 'approved')} className={` md:ml-5   ${fightClass?.status === "approved" ? 'btn-disabled bg-green-300': ''} ${fightClass?.status === "denied" ? 'btn-disabled bg-slate-300': ''}    text-white bg-rose-500 `} >Approved</button>
+                                        <button className={` md:ml-5 font-bold rounded text-white bg-rose-500 ${fightClass?.status === "approved" ? 'btn-disabled bg-slate-300': ''} ${fightClass?.status === "denied" ? ' bg-red-300': ''}`}>Send Feedback</button>
                                     </div>
                                 </div>
                             </div>

@@ -73,7 +73,7 @@ const AddAClass = () => {
                         <span className="label-text">Seats</span>
                     </label>
                     <label className="input-group">
-                        <input {...register("availableSeats", { required: true })} type="text" placeholder="seats" className="input input-bordered" />
+                        <input {...register("availableSeats", { required: true })} type="number" placeholder="seats" className="input input-bordered" />
                     </label>
                 </div>
                 <div className="form-control">
@@ -81,7 +81,7 @@ const AddAClass = () => {
                         <span className="label-text">Price</span>
                     </label>
                     <label className="input-group">
-                        <input {...register("price", { required: true })} type="text" placeholder="price" className="input input-bordered" />
+                        <input {...register("price", { required: true })} type="number" placeholder="price" className="input input-bordered" />
                     </label>
                 </div>
 
