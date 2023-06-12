@@ -13,10 +13,12 @@ const Payment = () => {
     const {id} = useParams()
     const foundItem = selectedClass.find(item => item._id === id);
     const price = foundItem?.price
-    console.log('payment',foundItem);
+    console.log('payment-foundItem',foundItem);
     return (
         <div className="w-[600px]">
             <h2 className="text-3xl"> You Have to pay {price}tk</h2>
+            <h1>{foundItem?.enrolled} enrolled</h1>
+            <h1>{foundItem?.availableSeats} available seats</h1>
             <Elements stripe={stripePromise}>
                 <CheckoutForm foundItem={foundItem} price={price}></CheckoutForm>
             </Elements>

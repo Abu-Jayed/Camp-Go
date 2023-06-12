@@ -83,8 +83,24 @@ const CheckoutForm = ({ foundItem, price }) => {
                 foundItem,
                 user,
                 classId: foundItem.classId,
+                userEmail: user.email,
             }
-            axiosSecure.post('/payments', payment)
+            const id = foundItem?.classId;
+            // axiosSecure.post('/payments', payment)
+
+            /* new data i want to update */
+        const newAvailableSeat = parseInt(foundItem?.availableSeats) - 1;
+        const newEnrolled = parseInt(foundItem?.enrolled) + 1;
+        
+        /* sending update request in backend */
+         axiosSecure.put(`/classes/seatupdate/${id}`, { enrolled: newEnrolled, availableSeats: newAvailableSeat });
+
+
+
+
+         
+
+            console.log('checkout---payment',payment);
             toast.success('payment confirm')
                 // .then(res => {
                 //     console.log('checkoutform',res.data);
