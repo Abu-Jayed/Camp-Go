@@ -1,51 +1,73 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useSelectedClass from "../../../../hooks/useSelectedClass";
+import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 
 const SelectedClass = () => {
-    // const {user,loading} = useContext(AuthContext)
-    // const [selectdClass,setSelectedClass] = useState([])
-    // useEffect(()=>{
-    //     if(!loading){
-    //         fetchClassData()
-    //     }
-    // },[loading])
 
-    // const total = selectdClass.reduce((sum, item) => item.price + sum, 0);
+    const [selectdClass, totalPrice] = useSelectedClass()
+    // const [reload,setReload] = useState(true)
+    // console.log(totalPrice);
+    const navigate = useNavigate();
 
-    // const fetchClassData = async () => {
-    //     try {
-    //         const response = await fetch(`http://localhost:5000/class?email=${user?.email}`);
-    //         if (response.ok) {
-    //           const data = await response.json();
-    //           console.log('res from fetch', data);
-    //           setSelectedClass(data);
-    //         } else {
-    //           throw new Error('Failed to fetch cart data');
-    //         }
-    //       } catch (error) {
-    //         console.error(error);
-    //       }
-    //   };
+    /* selected class delete function */
+    const handleDelete = (id) => {
+        /* swal confirmation start */
     
-    //   return [selectdClass];
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Deleted!", "Your selectedClass has been removed.", "success");
+    
+            fetch(`http://localhost:5000/selectedClass/delete/${id}`, {
+              method: "DELETE",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    toast.success("Selected Class removed successfully");
+                window.location.reload()
+                }
+              });
+          } else {
+            Swal.fire({
+              position: "top-center",
+              icon: "warning",
+              title: "selected class is not removed yet!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    
+        /* swal confirmation end */
+      };
+    
 
-    const [selectdClass,total] = useSelectedClass()
     return (
         <div>
             <div className="flex gap-5">
-            <h1 className="text-3xl font-bold">Total Selected Class: {selectdClass.length}</h1>
-            <h1 className="text-3xl font-bold">Total Price: {parseFloat(total.toFixed(2))}</h1>
-            <Link to="/dashboard/payment">
+                <h1 className="text-3xl font-bold">Total Selected Class: {selectdClass.length}</h1>
+                <h1 className="text-3xl font-bold">Total Price: {totalPrice}</h1>
+                <Link to="/dashboard/payment">
                     <button className="btn btn-warning btn-sm">PAY</button>
                 </Link>
             </div>
 
-            <div className="flex gap-8">
+            <div className="ml-10 grid grid-cols-2 gap-8">
 
-            {
+                {
                     selectdClass.map(fightClass => {
                         return <>
 
@@ -55,13 +77,15 @@ const SelectedClass = () => {
                                     <a href="" className="p-5 text-blue-400 font-bold">{fightClass.className}</a>
                                     <p className="font-bold text-xl px-5 pt-2">{fightClass.enrolled} Enrolled</p>
                                     <div className="items-center px-4 flex  text-2xl pb-3 text-orange-600 ">
-                                        <BsStarFill></BsStarFill>
+                                        {/* <BsStarFill></BsStarFill>
                                         <BsStarFill></BsStarFill>
                                         <BsStarFill></BsStarFill>
                                         <BsStarFill></BsStarFill>
                                         <BsStarHalf></BsStarHalf>
-                                        <p>{fightClass.rating} <span className="text-violet-500"> ({fightClass.enrolled})</span></p>
-                                        <button className="text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 ">Details</button>
+                                        <p>{fightClass.rating} <span className="text-violet-500"> ({fightClass.enrolled})</span></p> */}
+                                        <p>Price: {fightClass.price}</p>
+                                        <button onClick={() => handleDelete(fightClass._id)} className="text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 ">Delete</button>
+                                        <button className="text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 "><Link to={`/dashboard/payment/${fightClass._id}`}>pay</Link> </button>
                                     </div>
                                 </div>
                             </div>
