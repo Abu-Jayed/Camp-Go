@@ -2,7 +2,7 @@ import { Link, NavLink, Outlet, useNavigate, useParams } from "react-router-dom"
 import useStudent from "../../../hooks/useStudent";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { FaHome } from "react-icons/fa";
+import { FaHistory, FaHome } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
 import { BsFillCartCheckFill } from "react-icons/bs";
 
@@ -35,6 +35,13 @@ const Dashboard = () => {
                             <BsFillCartCheckFill className=" ml-2 text-white w-8 h-8"></BsFillCartCheckFill>
                             <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/dashboard/enrolledClass'> Enrolled Classes</Link>
                         </div>
+                        
+                        <Link to='/dashboard/payment-history'>
+                        <div className="mt-2 flex items-center rounded-lg bg-blue-600">
+                            <FaHistory className=" ml-2 text-white w-8 h-8"></FaHistory>
+                            <p className='p-2 bg-blue-600  font-bold pt text-2xl text-white' >Payment History</p>
+                        </div>
+                        </Link>
                         <Link to='/'>
                         <div className="mt-2 flex items-center rounded-lg bg-blue-600">
                             <FaHome className=" ml-2 text-white w-8 h-8"></FaHome>

@@ -72,7 +72,7 @@ const SelectedClass = () => {
           selectdClass.map(fightClass => {
             return <>
 
-              <div key={fightClass.classImage}>
+              <div key={fightClass._id}>
                 <div className="shadow-md hover:shadow-md hover:shadow-black shadow-gray-600">
                   <img className="mx-auto w-[340px] h-[226px]" src={fightClass.classImage} alt="" />
                   <a href="" className="p-5 text-blue-400 font-bold">{fightClass.className}</a>

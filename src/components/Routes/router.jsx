@@ -17,6 +17,7 @@ import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
 import SendFeedBack from "../Pages/Dashboard/AdminDashboard/SendFeedBack";
 import DashboardHome from "../Pages/Dashboard/DashboardHome";
+import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
             {
                 path: 'sendFeedback/:id',
                 element: <SendFeedBack></SendFeedBack>
+            },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }
