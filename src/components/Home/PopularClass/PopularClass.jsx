@@ -24,15 +24,15 @@ const PopularClass = () => {
     }
     return (
         <>
-            <h1 className=" text-5xl font-bold hover:bg-[#dbff00] rounded-2xl mx-auto py-2 md:w-[420px] bg-[#dbff00] hover:bg-opacity-50 hover:text-black duration-300 text-center mt-28  text-black mb-5">Top Classes
+            <h1 className="bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 from-indigo-500 via-purple-500 to-pink-500 font-bold text-gray-100 text-5xl mt-28 md:w-[420px] text-center mx-auto py-2 cursor-context-menu rounded-2xl ">Top Classes
             </h1>
             <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-3 max-w-[1100px] mx-auto md:my-10 gap-10">
 
                 {
-                    classes.slice(0, 6).map(fightClass => {
+                    classes.slice(0, 6).map((fightClass,i) => {
                         return <>
 
-                            <div key={fightClass.classImage}>
+                            <div key={i}>
                                 <div className="shadow-md hover:shadow-md hover:shadow-black shadow-gray-600">
                                     <img className="mx-auto w-[340px] h-[226px]" src={fightClass.classImage} alt="" />
                                     <p className="p-5 text-blue-400 font-bold">{fightClass.className}</p>

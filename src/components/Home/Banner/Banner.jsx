@@ -57,9 +57,6 @@ const Banner = () => {
                         <p className="absolute top-[155px] md:top-[350px] left-40 md:left-52 w-[100px] md:w-[180px] h-[40px] md:h-[60px] border-2 hover:cursor-pointer text-white py-1 md:text-center md:py-3 px-1 md:px-0 hover:bg-white hover:text-black transform  duration-300 hover:font-bold hover:text-lg ease-in-out">READ ME</p>
                     </div>
                 </div>
-                
-                
-
             </Carousel>
 
         </div>
