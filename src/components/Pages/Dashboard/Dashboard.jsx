@@ -18,9 +18,10 @@ const Dashboard = () => {
             .then(data => setUsers(data))
     }, [])
     // console.log(student.role);
+
     if (users?.role === 'student') {
         return <div>
-            <h1 className='bg-rose-400 text-center font-bold py-3 text-4xl'>Welcome {users.name}, Explore DashBoard</h1>
+            <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center font-bold text-gray-100 py-3 text-4xl'>Welcome {users.name}, Explore DashBoard!</h1>
             <div className="flex gap-3">
                 <div>
                     <div className=" bg-indigo-400 w-64 h-[100vh]">
@@ -34,10 +35,12 @@ const Dashboard = () => {
                             <BsFillCartCheckFill className=" ml-2 text-white w-8 h-8"></BsFillCartCheckFill>
                             <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/dashboard/enrolledClass'> Enrolled Classes</Link>
                         </div>
+                        <Link to='/'>
                         <div className="mt-2 flex items-center rounded-lg bg-blue-600">
                             <FaHome className=" ml-2 text-white w-8 h-8"></FaHome>
-                            <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/'>Home</Link>
+                            <p className='p-2 bg-blue-600  font-bold pt text-2xl text-white' >Home</p>
                         </div>
+                        </Link>
                     </div>
                 </div>
                 <div>
@@ -47,7 +50,7 @@ const Dashboard = () => {
         </div>
     } else if (users?.role === 'teacher') {
         return <div>
-            <h1 className='bg-rose-400 text-center font-bold py-3 text-4xl'>Welcome {users.name}, Explore DashBoard</h1>
+            <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center font-bold text-gray-100 py-3 text-4xl'>Welcome {users.name}, Explore DashBoard!</h1>
             <div className="flex gap-3">
                 <div>
                     <div className=" bg-indigo-400 w-64 h-[100vh]">
@@ -74,7 +77,7 @@ const Dashboard = () => {
         </div>
     }else if(users?.role === 'admin'){
         return <div>
-            <h1 className='bg-rose-400 text-center font-bold py-3 text-4xl'>Welcome {users.name}, Explore DashBoard</h1>
+            <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center font-bold text-gray-100 py-3 text-4xl'>Welcome {users.name}, Explore DashBoard!</h1>
             <div className="flex gap-3">
                 <div>
                     <div className=" bg-indigo-400 w-64 h-[100vh]">
@@ -88,10 +91,12 @@ const Dashboard = () => {
                             <BsFillCartCheckFill className=" ml-2 text-white w-8 h-8"></BsFillCartCheckFill>
                             <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/dashboard/manageUsers'> Manage Users</Link>
                         </div>
+                        <Link to='/'>
                         <div className="mt-2 flex items-center rounded-lg bg-blue-600">
                             <FaHome className=" ml-2 text-white w-8 h-8"></FaHome>
-                            <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/'>Home</Link>
+                            <p className='p-2 bg-blue-600  font-bold pt text-2xl text-white'>Home</p>
                         </div>
+                        </Link>
                     </div>
                 </div>
                 <div>
@@ -100,23 +105,7 @@ const Dashboard = () => {
             </div>
         </div>
     }
-        {/* <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/addaclass'>Add a class</NavLink> </li> */}
-        {/* <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/myclasses'>My classes</NavLink> </li> */}
-    // return <div>
-    //     <h1 className='text-4xl'>Your teacher name is {users?.name}</h1>
-    //     <div className="flex gap-3">
-    //         <div>
-    //             <ul className="bg-rose-500 w-60 h-[100vh]">
-    //                 <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/manageClasses'>Manage Classes</NavLink> </li>
-    //                 <li className='font-bold text-2xl text-white px-3 py-4'><NavLink to='/dashboard/manageUsers'>Manage Users</NavLink> </li>
-    //             </ul>
-    //         </div>
-    //         <h1></h1>
-    //         <div>
-    //             <Outlet></Outlet>
-    //         </div>
-    //     </div>
-    // </div>
+        
 };
 
 export default Dashboard;

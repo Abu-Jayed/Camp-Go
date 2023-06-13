@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -18,16 +19,22 @@ const ManageUsers = () => {
       try {
         // Send the API request to update the status
         await axiosSecure.put(`/users/${id}/role`, { role: newRole });
-  
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Role Changed",
+          showConfirmButton: false,
+          timer: 1400,
+      });
         // Update the status in the local state
-      //   setClasses((prevClasses) =>
-      //     prevClasses.map((fightClass) => {
-      //       if (fightClass._id === id) {
-      //         return { ...fightClass, status: newStatus };
-      //       }
-      //       return fightClass;
-      //     })
-      //   );
+        setUsers((users) =>
+          users.map((fightClass) => {
+            if (fightClass._id === id) {
+              return { ...fightClass, role: newRole };
+            }
+            return fightClass;
+          })
+        );
       } catch (error) {
         console.log(error);
       }
@@ -76,8 +83,8 @@ const ManageUsers = () => {
           </td>
           <td>
             <div className="flex gap-3">
-            <button onClick={() => handleRoleUpdate(user._id, 'admin')}>Make Admin</button>
-            <button className={`${user.email === "mdabujayed2006@gmail.com"?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'teacher')}>Make Teacher</button>
+            <button className={`${user.role === 'admin'?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'admin')}>Make Admin</button>
+            <button className={`${user.email === "mdabujayed2006@gmail.com"?'btn-disabled':''} ${user.role==='teacher'?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'teacher')}>Make Teacher</button>
             </div>
           </td>
         </tr>

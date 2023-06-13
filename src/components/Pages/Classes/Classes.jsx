@@ -12,6 +12,7 @@ const Classes = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
+    console.log('allclasses form classes',classes);
     const handleSelectClass = (classes) => {
         console.log(classes);
         const {availableSeats,classImage,className,enrolled,instructorName,instructorEmail,price,rating,_id} = classes

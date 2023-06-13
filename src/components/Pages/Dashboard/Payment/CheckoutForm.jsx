@@ -86,7 +86,7 @@ const CheckoutForm = ({ foundItem, price }) => {
                 userEmail: user.email,
             }
             const id = foundItem?.classId;
-            // axiosSecure.post('/payments', payment)
+            axiosSecure.post('/payments', payment)
 
             /* new data i want to update */
         const newAvailableSeat = parseInt(foundItem?.availableSeats) - 1;

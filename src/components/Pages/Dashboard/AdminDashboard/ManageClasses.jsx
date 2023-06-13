@@ -3,6 +3,7 @@ import { BsStarFill, BsStarHalf } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -75,7 +76,8 @@ const ManageClasses = () => {
                                         ${fightClass?.status === "denied" ? 'btn-disabled bg-red-200': ''} text-white bg-rose-500 
                                         `}>Denied</button>
                                         <button onClick={() => handleStatusUpdate(fightClass._id, 'approved')} className={` md:ml-5   ${fightClass?.status === "approved" ? 'btn-disabled bg-green-300': ''} ${fightClass?.status === "denied" ? 'btn-disabled bg-slate-300': ''}    text-white bg-rose-500 `} >Approved</button>
-                                        <button className={` md:ml-5 font-bold rounded text-white bg-rose-500 ${fightClass?.status === "approved" ? 'btn-disabled bg-slate-300': ''} ${fightClass?.status === "denied" ? ' bg-red-300': ''}`}>Send Feedback</button>
+                                        <button className={` md:ml-5 font-bold rounded text-white bg-rose-500 ${fightClass?.status === "approved" ? 'btn-disabled bg-slate-300': ''} ${fightClass?.status === "denied" ? ' bg-red-300': ''}`}>
+                                         <Link to={`/dashboard/sendFeedback/${fightClass._id}`}> Send Feedback</Link></button>
                                     </div>
                                 </div>
                             </div>

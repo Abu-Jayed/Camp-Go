@@ -15,6 +15,8 @@ import AddAClass from "../Pages/Dashboard/TeacherDashboard/AddAClass";
 import MyClasses from "../Pages/Dashboard/TeacherDashboard/MyClasses";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
+import SendFeedBack from "../Pages/Dashboard/AdminDashboard/SendFeedBack";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
         element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
         children: [
             {
+                path: '/dashboard',
+                element: <DashboardHome></DashboardHome>
+            },
+            {
                 path: 'selectedClass',
                 element: <SelectedClass></SelectedClass>
             },
@@ -75,6 +81,10 @@ const router = createBrowserRouter([
             {
                 path: 'manageClasses',
                 element: <ManageClasses></ManageClasses>
+            },
+            {
+                path: 'sendFeedback/:id',
+                element: <SendFeedBack></SendFeedBack>
             }
         ]
     }
