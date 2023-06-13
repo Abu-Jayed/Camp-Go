@@ -14,7 +14,7 @@ const useTeacherClass = () => {
 
     const fetchClassData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/teacherclass?email=${user?.email}`);
+            const response = await fetch(`https://camp-go-server.vercel.app/teacherclass?email=${user?.email}`);
             if (response.ok) {
               const data = await response.json();
               console.log('res from fetch', data);

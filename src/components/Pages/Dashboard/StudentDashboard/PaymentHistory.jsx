@@ -7,7 +7,7 @@ const PaymentHistory = () => {
     const {user} = useContext(AuthContext)
     const [history,setHistory] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/paymentHistory?email=${user.email}`)
+        fetch(`https://camp-go-server.vercel.app/paymentHistory?email=${user.email}`)
             .then(res => res.json())
             .then(data => setHistory(data))
     }, [])

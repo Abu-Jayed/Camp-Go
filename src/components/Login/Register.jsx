@@ -32,7 +32,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const saveUser = { name: name, email: email, role: 'student', img, createdOn: isoDate }
-                fetch('http://localhost:5000/users', {
+                fetch('https://camp-go-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -62,7 +62,7 @@ const Register = () => {
                 updateUser(name, img)
                 // .then(() => {
                 //     const saveUser = { name: name, email: email, role: 'student' }
-                //     fetch('http://localhost:5000/users', {
+                //     fetch('https://camp-go-server.vercel.app/users', {
                 //         method: 'POST',
                 //         headers: {
                 //             'content-type': 'application/json'

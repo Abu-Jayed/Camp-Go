@@ -15,7 +15,7 @@ const useEnrolledClass = () => {
     // console.log('useclass',totalPrice);
     const fetchClassData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/enrolledClass?email=${user?.email}`);
+            const response = await fetch(`https://camp-go-server.vercel.app/enrolledClass?email=${user?.email}`);
             if (response.ok) {
               const data = await response.json();
               // console.log('res from fetch', data);

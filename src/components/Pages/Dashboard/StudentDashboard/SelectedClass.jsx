@@ -30,7 +30,7 @@ const SelectedClass = () => {
         Swal.fire("Deleted!", "Your selectedClass has been removed.", "success");
 
         console.log('delete from ',id);
-        fetch(`http://localhost:5000/selectedClass/delete/${id}`, {
+        fetch(`https://camp-go-server.vercel.app/selectedClass/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

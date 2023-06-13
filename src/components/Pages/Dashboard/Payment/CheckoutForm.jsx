@@ -97,7 +97,7 @@ const CheckoutForm = ({ foundItem, price,idforDelete }) => {
 
 
         /* delete after payment */
-        fetch(`http://localhost:5000/selectedClass/delete/${idforDelete}`, {
+        fetch(`https://camp-go-server.vercel.app/selectedClass/delete/${idforDelete}`, {
           method: "DELETE",
         })
 

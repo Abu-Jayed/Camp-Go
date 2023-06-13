@@ -8,7 +8,7 @@ const Classes = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allclasses')
+        fetch('https://camp-go-server.vercel.app/allclasses')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
@@ -28,7 +28,7 @@ const Classes = () => {
         }
         if(user){
             const selectedClass = {classId: _id, instructorName, classImage, price, email: user.email,rating,enrolled,className,instructorEmail,availableSeats}
-            fetch('http://localhost:5000/selectedClass', {
+            fetch('https://camp-go-server.vercel.app/selectedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -46,7 +46,7 @@ const Classes = () => {
     }
     const [role,setRole] = useState('')
     useEffect(()=>{
-        fetch(`http://localhost:5000/checkrole/${user?.email}`)
+        fetch(`https://camp-go-server.vercel.app/checkrole/${user?.email}`)
         .then(res => res.json())
         .then(data => setRole(data))
     },[])

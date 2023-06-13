@@ -7,7 +7,7 @@ const PopularTeacher = () => {
     const [uniquedata, setUniquedata] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes/teacher')
+        fetch('https://camp-go-server.vercel.app/classes/teacher')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])

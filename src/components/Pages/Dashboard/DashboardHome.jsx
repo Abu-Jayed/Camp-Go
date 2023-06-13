@@ -23,7 +23,7 @@ const DashboardHome = () => {
     const { user } = useContext(AuthContext)
     const [users, setUsers] = useState()
     useEffect(() => {
-        fetch(`http://localhost:5000/dashboard/${user?.email}`)
+        fetch(`https://camp-go-server.vercel.app/dashboard/${user?.email}`)
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
