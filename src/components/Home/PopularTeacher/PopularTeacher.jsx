@@ -52,7 +52,6 @@ const PopularTeacher = () => {
                                         <BsStarFill></BsStarFill>
                                         <BsStarHalf></BsStarHalf>
                                         <p><span className="text-violet-500"> ({fightClass.enrolled})</span></p>
-                                        {/* <button onClick={handleOrderConfirm} className="text-lg md:ml-5 font-bold p-1 rounded-xl  text-white bg-rose-500 ">Details</button> */}
                                     </div>
                                 </div>
                             </div>

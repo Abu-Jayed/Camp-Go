@@ -29,6 +29,7 @@ const SelectedClass = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your selectedClass has been removed.", "success");
 
+        console.log('delete from ',id);
         fetch(`http://localhost:5000/selectedClass/delete/${id}`, {
           method: "DELETE",
         })

@@ -38,7 +38,7 @@ const Payment = () => {
             <h1>{dynamicEnrolled?.enrolled} enrolled</h1>
             <h1>{dynamicEnrolled?.availableSeats} available seats</h1>
             <Elements stripe={stripePromise}>
-                <CheckoutForm foundItem={foundItem} price={price}></CheckoutForm>
+                <CheckoutForm idforDelete={id} foundItem={foundItem} price={price}></CheckoutForm>
             </Elements>
         </div>
     );

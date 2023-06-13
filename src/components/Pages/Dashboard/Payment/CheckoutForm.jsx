@@ -7,7 +7,7 @@ import useAuth from "../../../../hooks/useAuth";
 import { toast } from "react-hot-toast";
 
 
-const CheckoutForm = ({ foundItem, price }) => {
+const CheckoutForm = ({ foundItem, price,idforDelete }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -96,7 +96,13 @@ const CheckoutForm = ({ foundItem, price }) => {
          axiosSecure.put(`/classes/seatupdate/${id}`, { enrolled: newEnrolled, availableSeats: newAvailableSeat });
 
 
-            console.log('checkout---payment',payment);
+        /* delete after payment */
+        fetch(`http://localhost:5000/selectedClass/delete/${idforDelete}`, {
+          method: "DELETE",
+        })
+
+
+            // console.log('checkout---payment',payment);
             toast.success('payment confirm')
                 // .then(res => {
                 //     console.log('checkoutform',res.data);
