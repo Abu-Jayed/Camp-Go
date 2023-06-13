@@ -61,7 +61,7 @@ const DashboardHome = () => {
 
   useChain([gridApi, boxApi], [0, 1], 1500)
   return (
-    <div className={'w-[70vw]'}>
+    <div className={'w-[60vw]'}>
         <h1 className=' text-2xl font-bold '>Welcome {users?.role},</h1>
         <h1>This is your dashboard page. Explore left panel for all functionality.</h1>
       <div className={'text-rose-100 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 '}>

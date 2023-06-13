@@ -96,10 +96,6 @@ const CheckoutForm = ({ foundItem, price }) => {
          axiosSecure.put(`/classes/seatupdate/${id}`, { enrolled: newEnrolled, availableSeats: newAvailableSeat });
 
 
-
-
-         
-
             console.log('checkout---payment',payment);
             toast.success('payment confirm')
                 // .then(res => {

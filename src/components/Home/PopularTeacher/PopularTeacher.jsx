@@ -11,10 +11,10 @@ const PopularTeacher = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-    console.log('unique classes',uniquedata);
+    // console.log('unique classes',uniquedata);
 
     useEffect(() => {
-        const uniqueData = classes?.filter(
+        const data = classes?.filter(
           (item, index, self) =>
             index ===
             self.findIndex(
@@ -22,10 +22,10 @@ const PopularTeacher = () => {
             )
         );
     
-        setUniquedata(uniqueData);
-      }, []);
+        setUniquedata(data);
+      }, [classes]);
 
-    
+    console.log('unique data', uniquedata);
     return (
         <>
             <h1 className=" text-5xl font-bold hover:bg-[#dbff00] rounded-2xl mx-auto py-2 md:w-[500px] bg-[#dbff00] hover:bg-opacity-50 hover:text-black duration-300 text-center mt-28  text-black mb-5">Popular Teacher

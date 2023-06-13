@@ -60,7 +60,7 @@ const Banner = () => {
                 
                 
 
-            </Carousel>;
+            </Carousel>
 
         </div>
 

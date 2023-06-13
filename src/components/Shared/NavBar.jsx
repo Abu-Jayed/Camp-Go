@@ -1,6 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaMoon } from "react-icons/fa";
+import useConditionalChangeTheme from "../../hooks/useConditionalChangeTheme";
 
 const NavBar = () => {
     const { user,logOut } = useContext(AuthContext)
@@ -12,6 +14,12 @@ const NavBar = () => {
             .catch(error => console.log(error));
     }
 
+    const [darkTheme, setDarkTheme] = useState(false);
+    const toggleTheme = () => {
+        setDarkTheme(!darkTheme);
+      };
+
+      useConditionalChangeTheme(darkTheme ? 'dark' : 'light');
 
     const navOptions = <>
         <Link className="hover:text-yellow-400 uppercase font-bold" to='/'>Home</Link>
@@ -19,6 +27,8 @@ const NavBar = () => {
         <Link className="hover:text-yellow-400 uppercase font-bold" to='classes'>Classes</Link>
         <Link className="hover:text-yellow-400 uppercase font-bold" to={`dashboard`}>Dashboard</Link>
         <Link className="hover:text-yellow-400 uppercase font-bold" to='classes'>Contact</Link>
+        <p className="cursor-pointer" onClick={toggleTheme}><FaMoon></FaMoon> </p>
+
     </>
     return (
         <>

@@ -64,10 +64,12 @@ const Dashboard = () => {
                             <BsFillCartCheckFill className=" ml-2 text-white w-8 h-8"></BsFillCartCheckFill>
                             <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/dashboard/myclasses'> My classes</Link>
                         </div>
+                        <Link to='/'>
                         <div className="mt-2 flex items-center rounded-lg bg-blue-600">
                             <FaHome className=" ml-2 text-white w-8 h-8"></FaHome>
-                            <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/'>Home</Link>
+                            <p className='p-2 bg-blue-600  font-bold pt text-2xl text-white'>Home</p>
                         </div>
+                        </Link>
                     </div>
                 </div>
                 <div>
