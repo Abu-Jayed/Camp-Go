@@ -22,7 +22,7 @@ const AddAClass = () => {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Item added successfully',
+                            title: 'class submited for approved',
                             showConfirmButton: false,
                             timer: 1500
                           })
@@ -31,7 +31,8 @@ const AddAClass = () => {
     };
     return (
         <div>
-            add a class <button className='btn btn-info'>Add class</button>
+            <h1 className="bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 from-indigo-500 via-purple-500 to-pink-500 font-bold text-gray-100 text-5xl mt-28 md:w-[420px] text-center mx-auto py-2 cursor-context-menu rounded-2xl ">Add new class
+            </h1>
             <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-5">
                 <div className="form-control">
                     <label className="label">
@@ -87,7 +88,7 @@ const AddAClass = () => {
 
                 {/* submit button */}
                 <div className="w-60 mx-auto form-control mt-6 mb-3">
-                        <button className="btn bg-rose-500 hover:bg-rose-600 font-bold text-xl">Add Class</button>
+                        <button className="bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 from-indigo-500 via-purple-500 to-pink-500 font-bold text-gray-100 md:w-[160px] text-xl text-center cursor-context-menu rounded-md">Add Class</button>
                     </div>
             </form>
         </div>

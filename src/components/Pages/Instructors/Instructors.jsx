@@ -12,15 +12,7 @@ const Instructors = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-    const handleOrderConfirm = () => {
-        Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "Order confirm successfully",
-            showConfirmButton: false,
-            timer: 1400,
-        });
-    }
+
     useTitle('CampGo || Instructors')
     console.log(classes);
     return (
@@ -33,9 +25,9 @@ const Instructors = () => {
                 {
                     classes.map(fightClass => {
                         return <>
-                            {
+                            {/* {
                                 console.log(fightClass)
-                            }
+                            } */}
                             <div key={fightClass?._id}>
                                 <div className="shadow-md hover:shadow-md hover:shadow-black shadow-gray-600 w-[350px]">
                                     <img className="rounded-md py-1 mx-auto w-[340px] h-[226px]" src={fightClass.img} alt="" />

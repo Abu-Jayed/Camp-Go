@@ -61,9 +61,6 @@ const SelectedClass = () => {
       <div className="flex gap-5">
         <h1 className="text-3xl font-bold">Total Selected Class: {selectdClass.length}</h1>
         <h1 className="text-3xl font-bold">Total Price: {totalPrice}</h1>
-        <Link to="/dashboard/payment">
-          <button className="btn btn-warning btn-sm">PAY</button>
-        </Link>
       </div>
 
       <div className="ml-10 grid grid-cols-2 gap-8">

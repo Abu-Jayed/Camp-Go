@@ -43,7 +43,7 @@ const ManageUsers = () => {
 
     return (
         <div>
-            <h1>Manage {users.length} user.</h1>
+            <h1 className="text-4xl ">Manage {users.length} user.</h1>
             <div className="overflow-x-auto">
             <table className="mx-auto w-full table border-4">
     {/* head */}
@@ -84,7 +84,7 @@ const ManageUsers = () => {
           <td>
             <div className="flex gap-3">
             <button className={`${user.role === 'admin'?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'admin')}>Make Admin</button>
-            <button className={`${user.email === "mdabujayed2006@gmail.com"?'btn-disabled':''} ${user.role==='teacher'?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'teacher')}>Make Teacher</button>
+            <button className={`${user.email === "mdabujayed2006@gmail.com"?'btn-disabled':''} ${user.email === "abujayed@campgo.com"?'btn-disabled':''} ${user.role==='teacher'?'btn-disabled':''}`} onClick={() => handleRoleUpdate(user._id, 'teacher')}>Make Teacher</button>
             </div>
           </td>
         </tr>

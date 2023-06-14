@@ -48,10 +48,9 @@ const ManageClasses = () => {
 
     return (
         <>
-            <h1 className=" text-5xl font-bold bg-rose-200 hover:bg-rose-500 rounded-2xl mx-auto py-4 md:w-[500px] hover:text-white hover:rotate-2 ease-in duration-300 text-center mt-28 text-gray-800 mb-5">All Added Classes
-
+            <h1 className="bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 from-indigo-500 via-purple-500 to-pink-500 font-bold text-gray-100 text-5xl mt-28 md:w-[420px] text-center mx-auto py-2 cursor-context-menu rounded-2xl ">All Added Classes
             </h1>
-            <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-3 max-w-[1100px] mx-auto md:my-10 gap-10">
+            <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-2 max-w-[1100px] mx-auto md:my-10 gap-10">
 
                 {
                     classes.map(fightClass => {

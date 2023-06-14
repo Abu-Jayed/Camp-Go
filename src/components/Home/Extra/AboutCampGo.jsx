@@ -2,7 +2,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const AboutCampGo = () => {
     return (
-        <div className="grid gap-10 grid-cols-2">
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
             <div className="">
                 <img src="https://webdesign-finder.com/youko-street-workout/wp-content/uploads/2021/02/img_01.png" alt="" />
             </div>

@@ -5,6 +5,7 @@ import './CheckoutForm.css'
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 
 const CheckoutForm = ({ foundItem, price,idforDelete }) => {
@@ -138,7 +139,7 @@ const CheckoutForm = ({ foundItem, price,idforDelete }) => {
                 </button>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
-            {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
+            {transactionId && <p className="text-green-500">Payment done, check your <span className="underline text-red-400"> <Link to='/dashboard/payment-history'>payment history</Link> </span> </p>}
         </>
     );
 };

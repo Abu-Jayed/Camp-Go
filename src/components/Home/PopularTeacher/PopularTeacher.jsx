@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
-import Swal from "sweetalert2";
 
 const PopularTeacher = () => {
     const [classes, setClasses] = useState([])
@@ -35,7 +34,6 @@ const PopularTeacher = () => {
                 {
                     uniquedata?.slice(0, 6).map((fightClass,i) => {
                         return <>
-
                             <div key={i}>
                                 <div className="shadow-md hover:shadow-md hover:shadow-black shadow-gray-600">
                                     <img className="mx-auto w-[340px] h-[226px]" src={fightClass.instructorImage} alt="" />

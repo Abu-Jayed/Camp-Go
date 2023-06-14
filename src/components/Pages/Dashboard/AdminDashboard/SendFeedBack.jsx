@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const SendFeedBack = () => {
     const {id} = useParams()
@@ -11,6 +12,13 @@ const SendFeedBack = () => {
         axiosSecure.patch(`/classes/feedback/${id}`,{
             feedback: feedback
         })
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Feedback sended to Teacher.',
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
     console.log('feedback', id);
         

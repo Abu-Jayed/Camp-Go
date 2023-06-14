@@ -18,6 +18,7 @@ import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
 import SendFeedBack from "../Pages/Dashboard/AdminDashboard/SendFeedBack";
 import DashboardHome from "../Pages/Dashboard/DashboardHome";
 import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
+import Contact from "../Pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: 'classes',
                 element: <Classes></Classes>
+            },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
             }
         ]
     },

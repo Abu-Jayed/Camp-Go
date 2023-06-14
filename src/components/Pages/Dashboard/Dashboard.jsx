@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaHistory, FaHome } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
-import { BsFillCartCheckFill } from "react-icons/bs";
+import { BsFillCartCheckFill, BsPeople, BsPeopleFill } from "react-icons/bs";
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -85,10 +85,10 @@ const Dashboard = () => {
             </div>
         </div>
     }else if(users?.role === 'admin'){
-        return <div>
+        return <div className="">
             <h1 className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center font-bold text-gray-100 py-3 text-4xl'>Welcome {users.name}, Explore DashBoard!</h1>
             <div className="flex gap-3">
-                <div>
+                <div className="">
                     <div className=" bg-indigo-400 w-64 h-[100vh]">
                         <div className="pt-12"></div>
                         <div className="flex items-center rounded-lg bg-blue-600">
@@ -97,7 +97,7 @@ const Dashboard = () => {
                         </div>
                         <div className="mt-2 flex items-center rounded-lg bg-blue-600">
                             {/* <FaHome className=" ml-2 text-white w-8 h-8"></FaHome> */}
-                            <BsFillCartCheckFill className=" ml-2 text-white w-8 h-8"></BsFillCartCheckFill>
+                            <BsPeopleFill className=" ml-2 text-white w-8 h-8"></BsPeopleFill>
                             <Link className='p-2 bg-blue-600  font-bold pt text-2xl text-white' to='/dashboard/manageUsers'> Manage Users</Link>
                         </div>
                         <Link to='/'>
