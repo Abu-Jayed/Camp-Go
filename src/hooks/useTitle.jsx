@@ -5,7 +5,7 @@ const useTitle = (newTitle) => {
     document.title = newTitle; // Set the new title
 
     return () => {
-      document.title = 'Default Website Title'; // Reset the title when the component unmounts
+      document.title = 'Home || campgo'; // Reset the title when the component unmounts
     };
   }, [newTitle]);
 };

@@ -5,9 +5,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { FaHistory, FaHome } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
 import { BsFillCartCheckFill, BsPeople, BsPeopleFill } from "react-icons/bs";
+import useTitle from "../../../hooks/useTitle";
 
 const Dashboard = () => {
     const navigate = useNavigate()
+    useTitle('Dashboard || Camp Go')
+
     const { user } = useContext(AuthContext)
     
     const [users, setUsers] = useState()

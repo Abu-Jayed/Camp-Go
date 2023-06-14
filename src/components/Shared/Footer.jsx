@@ -7,7 +7,7 @@ const Footer = () => {
             <footer className="footer p-10 bg-[#1d1d1d] text-white rounded-md font-bold text-[18px]">
                     <Link to='/'>
                 <div className="flex items-center gap-0">
-                <img src="../../../public/CG_Logo.png" className="w-40" alt="" />
+                <img src="https://i.ibb.co/K7QwqwD/CG-Logo.png" className="w-40" alt="" />
                 <p className="text-3xl font-bold">CampGo</p>
                 </div>
                     </Link>

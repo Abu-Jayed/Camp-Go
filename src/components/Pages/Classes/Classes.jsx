@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 // import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Classes = () => {
     const {user} = useContext(AuthContext)
@@ -53,7 +54,9 @@ const Classes = () => {
 
     const userIs = role[0]?.role
 
-    console.log(userIs);
+    // console.log(userIs);
+    useTitle('approved class || campgo')
+
     return (
         <>
             <h1 className="bg-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 from-indigo-500 via-purple-500 to-pink-500 font-bold text-gray-100 text-5xl mt-28 md:w-[520px] text-center mx-auto py-2 cursor-context-menu rounded-2xl ">Approved Classes
